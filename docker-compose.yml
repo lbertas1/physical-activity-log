@@ -1,0 +1,62 @@
+version: '3.3'
+
+services:
+
+  physical-activity-log-eureka:
+    image: physical-activity-log-eureka
+    build:
+      context: ./physical-activity-log-eureka
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8761:8761"
+    networks:
+      - physical-activity-log-network
+
+  physical-activity-log-service:
+    image: physical-activity-log-service
+    build:
+      context: ./physical-activity-log-service
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8100"
+    depends_on:
+      - physical-activity-log-eureka
+    networks:
+      - physical-activity-log-network
+      
+  physical-activity-log-api-gateway:
+    image: physical-activity-log-api-gateway
+    build:
+      context: ./physical-activity-log-api-gateway
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8090:8090"
+    depends_on:
+      - physical-activity-log-eureka
+    networks:
+      - physical-activity-log-network
+      
+networks:
+  physical-activity-log-network:
+
+
+
+# zbudowac kazdy projekt
+# >> mvn clean install -DskipTests
+
+# z poziomu docker-compose.yaml wywolaj:
+# >> docker-compose up -d --build
+# mozesz podgladac logs
+# >> docker-compose logs -f
+
+# kiedy chcesz uruchomic pare instancji jednego service naraz to zastosuj --scale
+# >> docker-compose up -d --build --scale grupowe-users-service=4
+
+# zatrzymanie kontenerow
+# >> docker-compose stop
+
+# sprzatanie po kontenerach
+# >> docker system prune
