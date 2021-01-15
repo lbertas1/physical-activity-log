@@ -39,6 +39,17 @@ services:
     networks:
       - physical-activity-log-network
       
+  physical-activity-log-config-service:
+    image: physical-activity-log-config-service
+    build:
+      context: ./physical-activity-log-config-service
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8888:8888"
+    networks:
+      - grupowe-network
+      
 networks:
   physical-activity-log-network:
 
