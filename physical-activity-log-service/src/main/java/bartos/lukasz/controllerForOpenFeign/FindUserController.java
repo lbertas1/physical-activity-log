@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 public class FindUserController {
     @GetMapping("/user/get")
     public User findById() {
+        log.info();
+
         return User
                 .builder()
                 .id(1L)

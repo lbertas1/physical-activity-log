@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>bartos.lukasz</groupId>
-    <artifactId>demo</artifactId>
+    <artifactId>physical-activity-log-config-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>physical-activity-log-config-service</name>
     <description>Demo project for Spring Boot</description>
