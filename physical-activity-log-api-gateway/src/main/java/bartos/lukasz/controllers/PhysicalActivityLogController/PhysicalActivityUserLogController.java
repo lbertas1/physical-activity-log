@@ -29,9 +29,8 @@ public class PhysicalActivityUserLogController {
     }
 
     private UserDto getAllFallback(Exception e) {
-        System.out.println("INSIDE GET ALL FALLBACK METHOD WITH ERROR:");
-        System.out.println(e.getMessage());
-        System.out.println(e.getClass());
+        log.error(e.getClass().getName());
+        log.error(e.getMessage());
         return UserDto
                 .builder()
                 .username("FALLBACK_NAME")

@@ -1,5 +1,6 @@
 package bartos.lukasz.controllerForOpenFeign;
 
+import bartos.lukasz.domain.Property;
 import bartos.lukasz.domain.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -10,9 +11,14 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/find")
 @Slf4j
 public class FindUserController {
+
+    private final Property property;
+
     @GetMapping("/user/get")
     public User findById() {
-        log.info();
+        log.info("MOJE PROPERTY ============" + property.getNazwa());
+        log.error("MOJE PROPERTY ============" + property.getNazwa());
+        log.info("MOJE PROPERTY ============" + property.getNazwa());
 
         return User
                 .builder()

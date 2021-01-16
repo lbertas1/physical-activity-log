@@ -48,7 +48,7 @@ services:
     ports:
       - "8888:8888"
     networks:
-      - grupowe-network
+      - physical-activity-log-network
       
 networks:
   physical-activity-log-network:
