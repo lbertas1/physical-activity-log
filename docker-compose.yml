@@ -33,7 +33,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     ports:
-      - "8090:8090"
+      - "8890:8890"
     depends_on:
       - physical-activity-log-eureka
     networks:
@@ -46,7 +46,33 @@ services:
       dockerfile: Dockerfile
     restart: always
     ports:
+      - "8889:8889"
+    networks:
+      - physical-activity-log-network
+      
+  my-spring-cloud-config-server:
+    image: my-spring-cloud-config-server
+    build:
+      context: ./my-spring-cloud-config-server
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      # - <port_w_localhost>:<port_w_docker>
       - "8888:8888"
+    networks:
+      - physical-activity-log-network
+      
+  micro-service-3:
+    image: micro-service-3
+    build:
+      context: ./micro-service-3
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      # - <port_w_localhost>:<port_w_docker>
+      - "8085:8085"
+    depends_on:
+      - physical-activity-log-eureka
     networks:
       - physical-activity-log-network
       

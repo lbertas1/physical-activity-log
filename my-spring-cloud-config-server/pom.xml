@@ -8,39 +8,22 @@
         <version>2.4.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>bartos.lukasz</groupId>
-    <artifactId>physical-activity-log-service</artifactId>
+    <groupId>com.app</groupId>
+    <artifactId>my-spring-cloud-config-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>physical-activity-log-service</name>
+    <name>my-spring-cloud-config-server</name>
     <description>Demo project for Spring Boot</description>
 
-  <properties>
+    <properties>
         <java.version>15</java.version>
-        <spring-cloud.version>2020.0.0-M5</spring-cloud.version>
+        <spring-cloud.version>2020.0.0</spring-cloud.version>
     </properties>
 
     <dependencies>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-data-jpa</artifactId>-->
-<!--        </dependency>-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
+            <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-        </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-openfeign</artifactId>-->
-<!--        </dependency>-->
-
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -92,15 +75,6 @@
                     </excludes>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    <compilerArgs>--enable-preview</compilerArgs>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
@@ -111,4 +85,5 @@
             <url>https://repo.spring.io/milestone</url>
         </repository>
     </repositories>
+
 </project>

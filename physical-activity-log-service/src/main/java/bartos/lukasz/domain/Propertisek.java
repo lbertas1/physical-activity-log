@@ -8,11 +8,14 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-//@ConfigurationProperties("property")  // prefix zmiennych z pliku properties ktore beda tutaj zaciagane
+@ConfigurationProperties("app-data")  // prefix zmiennych z pliku properties ktore beda tutaj zaciagane
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Property {
-    private String nazwa;
+public class Propertisek {
+    private String property1;
+    private String property2;
+    private String property3;
+    private Integer property4;
 }
